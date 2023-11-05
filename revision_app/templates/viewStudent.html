@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block main %}
+<div class="card" style="width: 18rem;">
+    <img src="/media/{{ student.profile }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{student.name}}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{student.age}} years old</li>
+      <li class="list-group-item">REG No. {{student.admission_number}}</li>
+      <li class="list-group-item">Joined At. {{student.created_at|date}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="/update/{{ student.id }}" class="card-link">Update</a>
+      <a href="/delete/{{ student.id }}" class="card-link">Delete</a>
+    </div>
+  </div>
+{% endblock %}

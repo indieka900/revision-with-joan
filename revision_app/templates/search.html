@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block main %}
+
+{% if students %}
+<h3>Results for `{{query}}`</h3>
+    {% for item in students %}
+    
+        <div class="card" style="width: 18rem;margin: 20px 10px;">
+            <img src="/media/{{ item.profile }}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="/view/{{ item.id }}" class="btn btn-primary">View Student</a>
+            </div>
+        </div>
+    {% endfor %}
+    
+{% else %}
+    <p>No results found for <b>{{query}}</b></p>
+{% endif %}
+    
+
+{% endblock %}
